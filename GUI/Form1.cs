@@ -35,26 +35,6 @@ namespace GUI
             ClientDAO database = new ClientDAO();
 
             database.Insert(c);
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ClientDAO data = new ClientDAO();
-
-            listBox1.DisplayMember = "Nom";
-            listBox1.DataSource = data.List();
-
-            dataGridView1.DataSource = data.List();
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-        }
-    
-
-
+        }  
     }
 }
