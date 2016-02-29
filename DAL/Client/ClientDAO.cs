@@ -9,9 +9,10 @@ namespace DAL
 {
     public class ClientDAO
     {
+        SqlConnection con = new SqlConnection("server=(local); database=hotel; integrated security=true");
+
         public void Insert(Client cli)
         {
-            SqlConnection con = new SqlConnection("server=(local); database=hotel; integrated security=true");
             con.Open();
 
             SqlCommand requete = new SqlCommand("insert into client (cli_nom, cli_prenom, cli_ville) values (@p1, @p2, @p3)", con);
@@ -22,14 +23,23 @@ namespace DAL
             requete.ExecuteNonQuery();
             con.Close();
         }
+        public void Update(Client cli)
+        {
+            con.Open();
+            SqlCommand requete = new SqlCommand("update client set cli_nom=@p1, cli_prenom=@p2, cli_ville=@p3 where cli_id=@p4", con);
+            requete.Parameters.AddWithValue("@p1", cli.Nom);
+            requete.Parameters.AddWithValue("@p2", cli.Prenom);
+            requete.Parameters.AddWithValue("@p3", cli.Ville);
+            requete.Parameters.AddWithValue("@p4", cli.Id);
+            requete.ExecuteNonQuery();
+            con.Close();
+        }
         public void Delete(Client cli)
         {
-            SqlConnection con = new SqlConnection("server=(local); database=hotel; integrated security=true");
             con.Open();
 
-            SqlCommand requete = new SqlCommand("DELETE FROM CLIENT WHERE @p1=cli_id", con);
-            requete.Parameters.RemoveAt("@p1");
-
+            SqlCommand requete = new SqlCommand("alter table reservation nocheck constraint all; delete from client WHERE cli_id=@p1;alter table reservation check constraint all", con);
+            requete.Parameters.AddWithValue("@p1", cli.Id);
             requete.ExecuteNonQuery();
             con.Close();
         }
@@ -38,7 +48,6 @@ namespace DAL
         {
             List<Client> liste = new List<Client>();
 
-            SqlConnection con = new SqlConnection("server=(local); database=hotel; integrated security=true");
             con.Open();
 
             SqlCommand requete = new SqlCommand("select * from client", con);
@@ -55,7 +64,7 @@ namespace DAL
 
                 liste.Add(cli);
             }
-
+            con.Close();
             return liste;
         }
     }

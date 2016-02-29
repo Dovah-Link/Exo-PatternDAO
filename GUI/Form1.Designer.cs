@@ -32,15 +32,15 @@
             this.B_modif = new System.Windows.Forms.Button();
             this.B_supr = new System.Windows.Forms.Button();
             this.GB_Details = new System.Windows.Forms.GroupBox();
+            this.b_cancel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.b_ok = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TB_ville = new System.Windows.Forms.TextBox();
             this.TB_prenom = new System.Windows.Forms.TextBox();
             this.TB_nom = new System.Windows.Forms.TextBox();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.b_ok = new System.Windows.Forms.Button();
-            this.b_cancel = new System.Windows.Forms.Button();
             this.GB_Details.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,7 @@
             this.B_modif.TabIndex = 1;
             this.B_modif.Text = "Modifier";
             this.B_modif.UseVisualStyleBackColor = true;
+            this.B_modif.Click += new System.EventHandler(this.B_modif_Click);
             // 
             // B_supr
             // 
@@ -72,10 +73,13 @@
             this.B_supr.TabIndex = 3;
             this.B_supr.Text = "Supprimer";
             this.B_supr.UseVisualStyleBackColor = true;
+            this.B_supr.Click += new System.EventHandler(this.B_supr_Click);
             // 
             // GB_Details
             // 
+            this.GB_Details.Controls.Add(this.b_cancel);
             this.GB_Details.Controls.Add(this.label3);
+            this.GB_Details.Controls.Add(this.b_ok);
             this.GB_Details.Controls.Add(this.label2);
             this.GB_Details.Controls.Add(this.label1);
             this.GB_Details.Controls.Add(this.TB_ville);
@@ -84,10 +88,20 @@
             this.GB_Details.Enabled = false;
             this.GB_Details.Location = new System.Drawing.Point(465, 12);
             this.GB_Details.Name = "GB_Details";
-            this.GB_Details.Size = new System.Drawing.Size(268, 199);
+            this.GB_Details.Size = new System.Drawing.Size(282, 242);
             this.GB_Details.TabIndex = 4;
             this.GB_Details.TabStop = false;
             this.GB_Details.Text = "Détails";
+            // 
+            // b_cancel
+            // 
+            this.b_cancel.Location = new System.Drawing.Point(163, 199);
+            this.b_cancel.Name = "b_cancel";
+            this.b_cancel.Size = new System.Drawing.Size(99, 24);
+            this.b_cancel.TabIndex = 7;
+            this.b_cancel.Text = "Annuler";
+            this.b_cancel.UseVisualStyleBackColor = true;
+            this.b_cancel.Click += new System.EventHandler(this.b_cancel_Click);
             // 
             // label3
             // 
@@ -97,6 +111,16 @@
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Ville";
+            // 
+            // b_ok
+            // 
+            this.b_ok.Location = new System.Drawing.Point(17, 199);
+            this.b_ok.Name = "b_ok";
+            this.b_ok.Size = new System.Drawing.Size(99, 24);
+            this.b_ok.TabIndex = 6;
+            this.b_ok.Text = "OK";
+            this.b_ok.UseVisualStyleBackColor = true;
+            this.b_ok.Click += new System.EventHandler(this.b_ok_Click);
             // 
             // label2
             // 
@@ -149,31 +173,11 @@
             this.DGV.Size = new System.Drawing.Size(252, 199);
             this.DGV.TabIndex = 5;
             // 
-            // b_ok
-            // 
-            this.b_ok.Location = new System.Drawing.Point(465, 240);
-            this.b_ok.Name = "b_ok";
-            this.b_ok.Size = new System.Drawing.Size(99, 24);
-            this.b_ok.TabIndex = 6;
-            this.b_ok.Text = "OK";
-            this.b_ok.UseVisualStyleBackColor = true;
-            // 
-            // b_cancel
-            // 
-            this.b_cancel.Location = new System.Drawing.Point(634, 240);
-            this.b_cancel.Name = "b_cancel";
-            this.b_cancel.Size = new System.Drawing.Size(99, 24);
-            this.b_cancel.TabIndex = 7;
-            this.b_cancel.Text = "Annuler";
-            this.b_cancel.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 289);
-            this.Controls.Add(this.b_cancel);
-            this.Controls.Add(this.b_ok);
+            this.ClientSize = new System.Drawing.Size(438, 289);
             this.Controls.Add(this.DGV);
             this.Controls.Add(this.GB_Details);
             this.Controls.Add(this.B_supr);
