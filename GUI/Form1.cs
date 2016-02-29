@@ -40,9 +40,7 @@ namespace GUI
 
         private void B_modif_Click(object sender, EventArgs e)
         {
-            TB_nom.Text = DGV.CurrentRow.Cells[1].Value.ToString();
-            TB_prenom.Text = DGV.CurrentRow.Cells[2].Value.ToString();
-            TB_ville.Text = DGV.CurrentRow.Cells[3].Value.ToString();
+            GetValueTB();
             i = "modif";
             GB_Details.Enabled = true;
             Width = 787;
@@ -52,9 +50,7 @@ namespace GUI
         {
             try
             {
-                TB_nom.Text = DGV.CurrentRow.Cells[1].Value.ToString();
-                TB_prenom.Text = DGV.CurrentRow.Cells[2].Value.ToString();
-                TB_ville.Text = DGV.CurrentRow.Cells[3].Value.ToString();
+                GetValueTB();
                 GB_Details.Enabled = true;
                 Width = 787;
                 i = "supr";
@@ -137,10 +133,15 @@ namespace GUI
             TB_prenom.Text = "";
             TB_ville.Text = "";
         }
+        private void GetValueTB()
+        {
+            TB_nom.Text = DGV.CurrentRow.Cells[1].Value.ToString();
+            TB_prenom.Text = DGV.CurrentRow.Cells[2].Value.ToString();
+            TB_ville.Text = DGV.CurrentRow.Cells[3].Value.ToString();
+        }
 
         private void b_cancel_Click(object sender, EventArgs e)
         {
-            
             Width = 484;
         }
 
