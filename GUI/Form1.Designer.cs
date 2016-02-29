@@ -30,7 +30,6 @@
         {
             this.B_ajout = new System.Windows.Forms.Button();
             this.B_modif = new System.Windows.Forms.Button();
-            this.listBox = new System.Windows.Forms.ListBox();
             this.B_supr = new System.Windows.Forms.Button();
             this.GB_Details = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,7 +38,11 @@
             this.TB_ville = new System.Windows.Forms.TextBox();
             this.TB_prenom = new System.Windows.Forms.TextBox();
             this.TB_nom = new System.Windows.Forms.TextBox();
+            this.DGV = new System.Windows.Forms.DataGridView();
+            this.b_ok = new System.Windows.Forms.Button();
+            this.b_cancel = new System.Windows.Forms.Button();
             this.GB_Details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // B_ajout
@@ -61,14 +64,6 @@
             this.B_modif.Text = "Modifier";
             this.B_modif.UseVisualStyleBackColor = true;
             // 
-            // listBox
-            // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(29, 21);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(235, 199);
-            this.listBox.TabIndex = 2;
-            // 
             // B_supr
             // 
             this.B_supr.Location = new System.Drawing.Point(315, 106);
@@ -86,7 +81,8 @@
             this.GB_Details.Controls.Add(this.TB_ville);
             this.GB_Details.Controls.Add(this.TB_prenom);
             this.GB_Details.Controls.Add(this.TB_nom);
-            this.GB_Details.Location = new System.Drawing.Point(465, 21);
+            this.GB_Details.Enabled = false;
+            this.GB_Details.Location = new System.Drawing.Point(465, 12);
             this.GB_Details.Name = "GB_Details";
             this.GB_Details.Size = new System.Drawing.Size(268, 199);
             this.GB_Details.TabIndex = 4;
@@ -141,14 +137,46 @@
             this.TB_nom.Size = new System.Drawing.Size(149, 20);
             this.TB_nom.TabIndex = 5;
             // 
+            // DGV
+            // 
+            this.DGV.AllowUserToAddRows = false;
+            this.DGV.AllowUserToDeleteRows = false;
+            this.DGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Location = new System.Drawing.Point(22, 20);
+            this.DGV.Name = "DGV";
+            this.DGV.ReadOnly = true;
+            this.DGV.Size = new System.Drawing.Size(252, 199);
+            this.DGV.TabIndex = 5;
+            // 
+            // b_ok
+            // 
+            this.b_ok.Location = new System.Drawing.Point(465, 240);
+            this.b_ok.Name = "b_ok";
+            this.b_ok.Size = new System.Drawing.Size(99, 24);
+            this.b_ok.TabIndex = 6;
+            this.b_ok.Text = "OK";
+            this.b_ok.UseVisualStyleBackColor = true;
+            // 
+            // b_cancel
+            // 
+            this.b_cancel.Location = new System.Drawing.Point(634, 240);
+            this.b_cancel.Name = "b_cancel";
+            this.b_cancel.Size = new System.Drawing.Size(99, 24);
+            this.b_cancel.TabIndex = 7;
+            this.b_cancel.Text = "Annuler";
+            this.b_cancel.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 243);
+            this.ClientSize = new System.Drawing.Size(759, 289);
+            this.Controls.Add(this.b_cancel);
+            this.Controls.Add(this.b_ok);
+            this.Controls.Add(this.DGV);
             this.Controls.Add(this.GB_Details);
             this.Controls.Add(this.B_supr);
-            this.Controls.Add(this.listBox);
             this.Controls.Add(this.B_modif);
             this.Controls.Add(this.B_ajout);
             this.Name = "Form1";
@@ -156,6 +184,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.GB_Details.ResumeLayout(false);
             this.GB_Details.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,7 +193,6 @@
 
         private System.Windows.Forms.Button B_ajout;
         private System.Windows.Forms.Button B_modif;
-        private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Button B_supr;
         private System.Windows.Forms.GroupBox GB_Details;
         private System.Windows.Forms.Label label3;
@@ -173,6 +201,9 @@
         private System.Windows.Forms.TextBox TB_ville;
         private System.Windows.Forms.TextBox TB_prenom;
         private System.Windows.Forms.TextBox TB_nom;
+        private System.Windows.Forms.DataGridView DGV;
+        private System.Windows.Forms.Button b_ok;
+        private System.Windows.Forms.Button b_cancel;
     }
 }
 

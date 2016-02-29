@@ -22,7 +22,18 @@ namespace DAL
             requete.ExecuteNonQuery();
             con.Close();
         }
-       
+        public void Delete(Client cli)
+        {
+            SqlConnection con = new SqlConnection("server=(local); database=hotel; integrated security=true");
+            con.Open();
+
+            SqlCommand requete = new SqlCommand("DELETE FROM CLIENT WHERE @p1=cli_id", con);
+            requete.Parameters.RemoveAt("@p1");
+
+            requete.ExecuteNonQuery();
+            con.Close();
+        }
+
         public List<Client> List()
         {
             List<Client> liste = new List<Client>();
